@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: projekt_baza_danych
+-- Host: localhost    Database: projekt_baza_danych
 -- ------------------------------------------------------
 -- Server version	8.0.27
 
@@ -23,13 +23,12 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `mail` varchar(45) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `group_id` int NOT NULL,
   `display_name` varchar(45) DEFAULT NULL,
   `good_reports` int NOT NULL DEFAULT '0' COMMENT 'Shows how many reports are valuable. If the user achieves right amount, the user will have a ticket sale for 6 months.',
   `password` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
+  PRIMARY KEY (`mail`),
   UNIQUE KEY `mail_UNIQUE` (`mail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table for users, who will log into the app.';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-02  0:12:51
+-- Dump completed on 2021-11-07 23:57:20

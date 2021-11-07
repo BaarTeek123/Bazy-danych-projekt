@@ -16,32 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `vehicles`
+-- Table structure for table `accident_details`
 --
 
-DROP TABLE IF EXISTS `vehicles`;
+DROP TABLE IF EXISTS `accident_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vehicles` (
-  `side_number` int NOT NULL AUTO_INCREMENT,
-  `vehicle_type_id` int NOT NULL COMMENT '0 - tramway\\n1 - bus ',
-  `agency_id` int NOT NULL,
-  `registration_number` varchar(10) NOT NULL,
-  `is_driving` tinyint(1) NOT NULL,
-  `is_roadworthy` tinyint(1) NOT NULL,
-  PRIMARY KEY (`side_number`),
-  UNIQUE KEY `side_number_UNIQUE` (`side_number`),
-  UNIQUE KEY `registration_number_UNIQUE` (`registration_number`)
+CREATE TABLE `accident_details` (
+  `accident_id` varchar(45) NOT NULL,
+  `driver_id` int DEFAULT NULL,
+  `hurt_passengers` int DEFAULT '0',
+  `dead_passengers` int DEFAULT '0',
+  `other_mpk_vehicles_accessory` varchar(45) DEFAULT NULL COMMENT 'inne pojazdy MPK biorące udział w zdarzeniu',
+  `amount_of_other_vehicles_accessory` varchar(45) DEFAULT NULL,
+  `amount_of_people_accessory` varchar(45) DEFAULT NULL,
+  `affected_lines` varchar(45) DEFAULT NULL COMMENT 'Linie, które musiały zmienić trasę / stać w korku z powodu awariii',
+  `hurt_MPK_emplyees` int DEFAULT '0',
+  `dead_MPK_emplyees` int DEFAULT '0',
+  `added_by_user_mail` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`accident_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `vehicles`
+-- Dumping data for table `accident_details`
 --
 
-LOCK TABLES `vehicles` WRITE;
-/*!40000 ALTER TABLE `vehicles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vehicles` ENABLE KEYS */;
+LOCK TABLES `accident_details` WRITE;
+/*!40000 ALTER TABLE `accident_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `accident_details` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

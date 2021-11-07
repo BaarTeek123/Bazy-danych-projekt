@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: projekt_baza_danych
+-- Host: localhost    Database: projekt_baza_danych
 -- ------------------------------------------------------
 -- Server version	8.0.27
 
@@ -23,10 +23,11 @@ DROP TABLE IF EXISTS `drivers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `drivers` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `driver_id` int NOT NULL AUTO_INCREMENT,
   `has_actual_medical_examination` tinyint(1) NOT NULL COMMENT '1 - a driver has valid medical examination\n0 - a driver DOES NOT HAVE valid medical examination',
   `has_actual_driving_license` tinyint(1) NOT NULL COMMENT '1 - a driver has valid driving license\n0 - a driver DOES NOT HAVE  valid driving license',
-  PRIMARY KEY (`id`)
+  `agency_id` int NOT NULL,
+  PRIMARY KEY (`driver_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-02  0:12:51
+-- Dump completed on 2021-11-07 23:57:22

@@ -16,32 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `vehicles`
+-- Table structure for table `vehicle_type`
 --
 
-DROP TABLE IF EXISTS `vehicles`;
+DROP TABLE IF EXISTS `vehicle_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vehicles` (
-  `side_number` int NOT NULL AUTO_INCREMENT,
-  `vehicle_type_id` int NOT NULL COMMENT '0 - tramway\\n1 - bus ',
-  `agency_id` int NOT NULL,
-  `registration_number` varchar(10) NOT NULL,
-  `is_driving` tinyint(1) NOT NULL,
-  `is_roadworthy` tinyint(1) NOT NULL,
-  PRIMARY KEY (`side_number`),
-  UNIQUE KEY `side_number_UNIQUE` (`side_number`),
-  UNIQUE KEY `registration_number_UNIQUE` (`registration_number`)
+CREATE TABLE `vehicle_type` (
+  `vehicle_type_id` int NOT NULL,
+  `vehicle_type_name` varchar(45) NOT NULL,
+  `vehicle_type_description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`vehicle_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `vehicles`
+-- Dumping data for table `vehicle_type`
 --
 
-LOCK TABLES `vehicles` WRITE;
-/*!40000 ALTER TABLE `vehicles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vehicles` ENABLE KEYS */;
+LOCK TABLES `vehicle_type` WRITE;
+/*!40000 ALTER TABLE `vehicle_type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vehicle_type` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
